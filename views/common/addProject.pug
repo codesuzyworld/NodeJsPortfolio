@@ -1,0 +1,20 @@
+extends layout
+
+block layout-content
+  .main-content
+    h1.page-title Add a New Project
+    form.form-container(method="POST", action="/addProject")
+      .form-input
+        label(for="name") Project Name
+        input(type="text", name="name", required=true)
+      .form-input
+        label(for="date") Project Date
+        input(type="date", name="date", required=true)
+      .form-input
+        label(for="description") Project Description
+        textarea(name="description", required=true)
+      .form-input        
+        label(for="link") Project Link
+        input(type="text", name="link", placeholder="https://github.com/username/repo", required=true)
+      .form-input
+        button.btn(type="submit") Add Project

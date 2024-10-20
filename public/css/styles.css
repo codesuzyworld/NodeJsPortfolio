@@ -1,0 +1,158 @@
+body {
+  color:#fff;
+  background-color:#222;
+}
+a {
+  color:rgb(46, 145, 221);
+}
+a.button, button {
+  background-color:rgb(34, 142, 237);
+  color:#000;
+  font-family:Arial, Helvetica, sans-serif;
+  text-decoration:none;
+  display:inline-block;
+  padding:0.5em 0.8em;
+  border-radius:0.3em;
+}
+/*Header*/
+#header {
+  background-color: #111111; 
+  color: #fff; 
+  padding: 0 20px 0 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#site-name a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px; 
+}
+
+nav ul li {
+  margin: 0;
+}
+
+/* Containers */
+.projects-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Titles */
+.page-title {
+  text-align: center;
+  font-size: 40x;
+  margin-bottom: 20px;
+}
+
+.page-section {
+  text-align: center;
+  font-size: 30x;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-body {
+  margin-top: 10px;
+}
+
+.card-body div {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+
+
+/* Form */
+
+.form-input {
+  margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-input label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f1f1f1;
+}
+
+/* Input and Textarea styling */
+.form-input input[type="text"],
+.form-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #1f1f1f;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Textarea styling */
+.form-input textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:#157cd0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #43a2f0;
+}

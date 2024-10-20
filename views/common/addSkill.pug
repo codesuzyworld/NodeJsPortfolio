@@ -1,0 +1,14 @@
+extends layout
+
+block layout-content
+  .main-content
+    h1.page-title Add a New Skill
+    form.form-container(method="POST", action="/addSkill")
+      .form-input
+        label(for="name") Skill Name
+        input(type="text", name="name", required=true)
+      .form-input
+        label(for="level") Proficiency Level
+        input(type="text", name="level", required=true)
+      .form-input
+        button.btn(type="submit") Add Skill

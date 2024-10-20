@@ -1,0 +1,25 @@
+extends common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title My Portfolio
+
+    h2.page-section Projects
+    .projects-container
+      each project in projects
+        .card
+          .card-header        
+            h2 #{project.name} 
+          .card-body    
+            div Date: #{project.date}
+            div Description: #{project.description}
+            div 
+              a.btn(href=project.link target="_blank") View Project
+    h2.page-section Skills     
+    .skills-container 
+      each skill in skills
+        .card
+          .card-header        
+            h2 #{skill.name} 
+          .card-body
+            div Level: #{skill.level}
