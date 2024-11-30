@@ -3,7 +3,7 @@ extends layout
 block layout-content
   .main-content
     h1.page-title Add a New Project
-    form.form-container(method="POST", action="/addProject")
+    form.form-container(method="POST", action="/addProject" enctype="multipart/form-data")
       .form-input
         label(for="name") Project Name
         input(type="text", name="name", required=true)
@@ -16,5 +16,11 @@ block layout-content
       .form-input        
         label(for="link") Project Link
         input(type="text", name="link", placeholder="https://github.com/username/repo", required=true)
+      .form-input
+        label(for="stack") Project Stack (comma-separated)
+        textarea(name="stack", placeholder="JavaScript, React, Node.js", required=true)
+      .form-input
+        label(for="image") Project Image
+        input(type="file", name="image", accept="image/*")
       .form-input
         button.btn(type="submit") Add Project

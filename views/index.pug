@@ -11,15 +11,35 @@ block layout-content
           .card-header        
             h2 #{project.name} 
           .card-body    
-            div Date: #{project.date}
-            div Description: #{project.description}
-            div 
-              a.btn(href=project.link target="_blank") View Project
+            if project.image && project.image.data
+              img.project-image(src=`data:${project.image.contentType};base64,${project.image.data}` alt=project.name)
+            div.project-info
+              div.project-date
+                strong Date: 
+                span #{project.date}
+              div.project-description
+                strong Description: 
+                span #{project.description}
+              if project.stack && project.stack.length
+                div.project-stack
+                  strong Tech Stack:
+                  .stack-list
+                    each tech in project.stack
+                      span.stack-tag(style=`background-color: #444; color: #fff`) #{tech}
+              div.project-link 
+                a.btn(href=project.link target="_blank") View Project
+
     h2.page-section Skills     
     .skills-container 
       each skill in skills
-        .card
+        .card(style=`border-left: 4px solid ${skill.tagColor}`)
           .card-header        
-            h2 #{skill.name} 
+            h2 #{skill.name}
+            .tag-color-indicator(style=`background-color: ${skill.tagColor}`)
           .card-body
-            div Level: #{skill.level}
+            if skill.subskills && skill.subskills.length
+              .subskills-container
+                strong Subskills:
+                .subskills-list
+                  each subskill in skill.subskills
+                    span.subskill-tag(style=`background-color: ${skill.tagColor}20`) #{subskill}

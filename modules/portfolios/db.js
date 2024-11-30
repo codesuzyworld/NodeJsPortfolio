@@ -1,15 +1,19 @@
 const mongoose = require("mongoose");
 
 //const dbUrl = `mongodb://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/?authSource=testdb`;
-const dbUrl = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}`;
-
+const dbUrl = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/${process.env.DBNAME}?retryWrites=true&w=majority`;
 //set up Project and skills schema and model
 const ProjectSchema = new mongoose.Schema(
   {
     name: String,
     date: String,
     description: String,
-    link: String 
+    link: String,
+    stack: [String], 
+    image: {
+      data: String,
+      contentType: String
+    }
   },
   { collection: "projects"}
 );
@@ -17,10 +21,12 @@ const ProjectSchema = new mongoose.Schema(
 const SkillSchema = new mongoose.Schema(
   {
     name: String,
-    level: String
+    tagColor: String,
+    subskills: [String]
   },
   { collection: "skills" }
 );
+
 
 //above, you could pass the collection name in an options object to specify a specific collection to associate with the Pet model
 const Project = mongoose.model("Project", ProjectSchema);
@@ -38,35 +44,53 @@ async function initializeProjects() {
       name: "Project 1",
       date: "10/19/2024",
       description: "Cool Project it is!",
-      link: "https://github.com/example/project1"
+      link: "https://github.com/example/project1",
+      stack: ["JavaScript", "React", "Node.js"],  // Changed from skills to stack
+      image: {
+        data: null,
+        contentType: null
+      }
     },
     {
       name: "Project 2",
       date: "10/10/2024",
       description: "Cool Project woohoo!",
-      link: "https://github.com/example/project2"
+      link: "https://github.com/example/project2",
+      stack: ["Python", "Django", "PostgreSQL"],  // Changed from skills to stack
+      image: {
+        data: null,
+        contentType: null
+      }
     }
   ];
-  await Project.insertMany(projectList); //model.insertMany(<array_of_documents>)
+  await Project.insertMany(projectList);
 }
+
+
 //Add a single Project.
-async function addProject(pName, pDate, pDesc, pLink) {
+async function addProject(pName, pDate, pDesc, pLink, stack, imageData, contentType) {
   let newProject = new Project({
     name: pName,
     date: pDate,
     description: pDesc,
-    link: pLink
+    link: pLink,
+    stack: stack,  // Make sure we're using the stack parameter
+    image: {
+      data: imageData,
+      contentType: contentType
+    }
   });
-  newProject.save();
+  await newProject.save();
 }
 
 // Add a single skill
-async function addSkill(skillName, level) {
+async function addSkill(skillName, tagColor, subskills) {
   let newSkill = new Skill({
     name: skillName,
-    level: level
+    tagColor: tagColor,
+    subskills: subskills
   });
-  newSkill.save();
+  await newSkill.save();
 }
 
 // Function to get all skills

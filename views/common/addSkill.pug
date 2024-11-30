@@ -8,7 +8,10 @@ block layout-content
         label(for="name") Skill Name
         input(type="text", name="name", required=true)
       .form-input
-        label(for="level") Proficiency Level
-        input(type="text", name="level", required=true)
+        label(for="tagColor") Tag Color
+        input(type="color", name="tagColor", required=true)
+      .form-input
+        label(for="subskills") Subskills (comma-separated)
+        textarea(name="subskills", placeholder="React, Node.js, Express", required=true)
       .form-input
         button.btn(type="submit") Add Skill

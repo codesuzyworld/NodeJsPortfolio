@@ -1,28 +1,27 @@
+/* Base Styles */
 body {
-  color:#fff;
-  background-color:#222;
+  color: #fff;
+  background-color: #222;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
+
 a {
-  color:rgb(46, 145, 221);
+  color: rgb(46, 145, 221);
+  text-decoration: none;
 }
-a.button, button {
-  background-color:rgb(34, 142, 237);
-  color:#000;
-  font-family:Arial, Helvetica, sans-serif;
-  text-decoration:none;
-  display:inline-block;
-  padding:0.5em 0.8em;
-  border-radius:0.3em;
-}
-/*Header*/
+
+/* Header Styles */
 #header {
-  background-color: #111111; 
-  color: #fff; 
-  padding: 0 20px 0 20px;
+  background-color: #111111;
+  color: #fff;
+  padding: 0 20px;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 20px;
 }
 
 #site-name a {
@@ -33,126 +32,253 @@ a.button, button {
 }
 
 nav ul {
-  list-style: none; 
+  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 15px; 
+  gap: 15px;
 }
 
-nav ul li {
-  margin: 0;
+nav ul li a {
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-/* Containers */
-.projects-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-.skills-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+nav ul li a:hover {
+  background-color: #333;
 }
 
-.form-container {
-  max-width: 500px;
-  margin: 0 auto;
+/* Main Content */
+.main-content {
   padding: 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 /* Titles */
 .page-title {
   text-align: center;
-  font-size: 40x;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #fff;
 }
 
 .page-section {
   text-align: center;
-  font-size: 30x;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin: 40px 0 20px;
+  color: #fff;
+}
+
+/* Containers */
+.projects-container, .skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
 }
 
 /* Cards */
 .card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  background-color: #fff;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 1rem;
+  background-color: #444;
+  border-bottom: 1px solid #555;
 }
 
 .card-header h2 {
   margin: 0;
   font-size: 1.5rem;
-  color: #333;
+  color: #fff;
 }
 
 .card-body {
-  margin-top: 10px;
+  padding: 1rem;
 }
 
-.card-body div {
-  margin-bottom: 10px;
-  color: #666;
+/* Project Specific */
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
+.project-info div {
+  margin-bottom: 0.8rem;
+}
 
+.project-info strong {
+  color: #aaa;
+  margin-right: 0.5rem;
+}
 
-/* Form */
+/* Skills Specific */
+.tag-color-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.subskills-container {
+  margin-top: 1rem;
+}
+
+.subskills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.subskill-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* Forms */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .form-input {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* Label styling */
 .form-input label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #f1f1f1;
+  margin-bottom: 8px;
+  color: #fff;
 }
 
-/* Input and Textarea styling */
 .form-input input[type="text"],
+.form-input input[type="date"],
+.form-input input[type="color"],
 .form-input textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #1f1f1f;
+  border: 1px solid #444;
   border-radius: 5px;
+  background-color: #222;
+  color: #fff;
   font-size: 1rem;
   box-sizing: border-box;
 }
 
-/* Textarea styling */
+.form-input input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 5px;
+  color: #fff;
+}
+
 .form-input textarea {
   height: 100px;
   resize: vertical;
 }
 
-/* Button styling */
+.project-skills {
+  margin: 1rem 0;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skill-tag {
+  background-color: #444;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color:#157cd0;
+  background-color: #157cd0;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .btn:hover {
   background-color: #43a2f0;
+}
+.project-stack {
+  margin: 1rem 0;
+}
+
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stack-tag {
+  background-color: #444;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.stack-tag:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav ul {
+    margin-top: 10px;
+  }
+
+  .projects-container, .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
 }
