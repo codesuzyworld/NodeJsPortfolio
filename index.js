@@ -3,6 +3,7 @@ const path = require("path"); //needed when setting up static/file paths
 const dotenv = require("dotenv");
 const multer = require('multer');
 const upload = multer();
+const cors = require('cors');
 
 //load the environment variables from .env
 dotenv.config();
