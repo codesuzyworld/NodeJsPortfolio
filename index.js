@@ -11,6 +11,10 @@ const db = require("./modules/portfolios/db"); //load db.js
 
 //set up the Express app
 const app = express();
+
+// Enable CORS - Add this before other middleware
+app.use(cors());
+
 const port = process.env.PORT || "8888";
 
 // Middleware to parse JSON and URL-encoded form data
